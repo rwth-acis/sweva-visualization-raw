@@ -1,1 +1,91 @@
-<html><head><meta charset="UTF-8"></head><body><dom-module id="sweva-visualization-raw"><template><style>:host{display:block;box-sizing:border-box;font-family:monospace;background-color:#fff;position:relative;color:#000;white-space:pre;overflow:auto}#content{padding:10px}</style><div id="content"></div></template><script>Polymer({is:"sweva-visualization-raw",properties:{data:{type:Object,value:{}}},set:function(t){this.$.content.textContent=this.getText(t)},append:function(t){this.$.content.textContent+=this.getText(t)},getText:function(t){var e="";return e="object"==typeof t?JSON.stringify(t,null,2):t},ready:function(){},attached:function(){},detached:function(){},resize:function(t,e){},clear:function(){this.$.content.textContent=""}});</script></dom-module></body></html>
+<html><head><!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><meta charset="UTF-8"></head><body><dom-module id="sweva-visualization-raw">
+    <template>
+        <style>
+            :host {
+                display: block;
+                box-sizing: border-box;
+                font-family: monospace;
+                background-color: white;
+                position: relative;
+                color: #000;
+                white-space: pre;
+                overflow: auto;
+            }
+            #content {
+                padding: 10px;
+            }
+        </style>
+        <div id="content">
+
+        </div>
+        
+    </template>
+    <script>
+        Polymer({
+            is: 'sweva-visualization-raw',
+
+            properties: {
+                data: {
+                    type: Object,
+                    value: {}
+                }
+
+            },
+
+           
+            set: function (value) {
+                this.$.content.textContent = this.getText(value);
+            },
+
+            append: function (value) {                
+                this.$.content.textContent += this.getText(value);
+            },
+
+            getText: function(value){
+                var text = '';
+                if (typeof value === 'object') {
+                    text = JSON.stringify(value, null, 2);
+                }
+                else {
+                    text = value;
+                }
+                return text;
+            },
+            // Element Lifecycle
+
+            ready: function () {
+               
+            },
+
+            attached: function () {
+                
+            },
+
+            detached: function () {
+                // The analog to `attached`, `detached` fires when the element has been
+                // removed from a document.
+                //
+                // Use this to clean up anything you did in `attached`.
+            },
+
+            // Element Behavior
+            
+            resize: function (width, height) {
+                
+            },
+           
+            clear: function () {
+                this.$.content.textContent = '';
+            }            
+
+        });
+    </script>
+</dom-module></body></html>
